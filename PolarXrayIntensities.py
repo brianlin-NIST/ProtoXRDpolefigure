@@ -34,12 +34,15 @@ for i in range(len(data)):
     else:
         r[i] = data[i,1]
     intensitysize[i] = ((maxIntensity - data[i,4])/(maxIntensity - minIntensity))*100
-    #intensitycolor[i] = ((maxIntensity - data[i,4])/(maxIntensity - minIntensity))
-    intensitycolor[i] = data[i,4]
+    intensitycolor[i] = ((maxIntensity - data[i,4])/(maxIntensity - minIntensity))
+    #intensitycolor[i] = data[i,4]
     
     ax = plt.subplot(111, projection='polar')
-    c = plt.scatter(math.radians(theta[i]), r[i], s=intensitysize[i], c=intensitycolor[i], cmap=plt.cm.Blues, vmin=minIntensity, vmax=maxIntensity)
+    c = plt.scatter(math.radians(theta[i]), r[i], s=intensitysize[i], c=intensitycolor[i], cmap=plt.cm.Blues, vmin=0, vmax=1)
     c.set_alpha(0.75)
+    ax.set_rmax(60)
+
+
 
 plt.show()
 
