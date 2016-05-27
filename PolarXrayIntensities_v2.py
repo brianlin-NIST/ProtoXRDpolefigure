@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
-data = np.loadtxt('05APR16_PSRD.txt', usecols=range(0,14), skiprows=1)
+data = np.loadtxt('06APR16_UTRD.txt', usecols=range(0,14), skiprows=1)
 maxIntensity = data[:,4].max()
 minIntensity = data[:,13].min()
 
@@ -39,19 +39,19 @@ for i in range(len(data)):
         else:
             theta[i] = data[i,0]
     if data[i,1] !=0:
-        r[i] = (math.sin(math.radians(45-abs(data[i,1]))))/(1-math.cos(math.radians((45-abs(data[i,1])))))
+        r[i] = (math.sin(math.radians(90-abs(data[i,1]))))/(1-math.cos(math.radians((90-abs(data[i,1])))))
     else:
         r[i] = data[i,1]
-    intensitysize1[i] = ((data[i,4]-minIntensity)/(maxIntensity - minIntensity))*50
+    intensitysize1[i] = ((data[i,4]-minIntensity)/(maxIntensity - minIntensity))*75
     intensitycolor1[i] = ((data[i,4]-minIntensity)/(maxIntensity - minIntensity))
     
-    intensitysize2[i] = ((data[i,7]-minIntensity)/(maxIntensity - minIntensity))*50
+    intensitysize2[i] = ((data[i,7]-minIntensity)/(maxIntensity - minIntensity))*75
     intensitycolor2[i] = ((data[i,7]-minIntensity)/(maxIntensity - minIntensity))
     
-    intensitysize3[i] = ((data[i,10]-minIntensity)/(maxIntensity - minIntensity))*50
+    intensitysize3[i] = ((data[i,10]-minIntensity)/(maxIntensity - minIntensity))*75
     intensitycolor3[i] = ((data[i,10]-minIntensity)/(maxIntensity - minIntensity))
     
-    intensitysize4[i] = ((data[i,13]-minIntensity)/(maxIntensity - minIntensity))*50
+    intensitysize4[i] = ((data[i,13]-minIntensity)/(maxIntensity - minIntensity))*75
     intensitycolor4[i] = ((data[i,13]-minIntensity)/(maxIntensity - minIntensity))
     #intensitycolor[i] = data[i,4]
     
